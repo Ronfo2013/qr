@@ -1,0 +1,34 @@
+Evento ricevuto: 01-03-2025
+Evento convertito: 2025-03-01
+Evento ricevuto: 01-03-2025
+Evento convertito: 2025-03-01
+Evento ricevuto: 01-03-2025
+Evento convertito: 2025-03-01
+Evento ricevuto: 01-03-2025
+Evento convertito: 2025-03-01
+Risultati query iscritti: Array
+(
+)
+
+Utenti bloccati: Array
+(
+)
+
+Utenti HOT: Array
+(
+)
+
+Evento ricevuto: 01-03-2025
+Evento convertito: 2025-03-01
+Risultati query iscritti: Array
+(
+)
+
+Utenti bloccati: Array
+(
+)
+
+Utenti HOT: Array
+(
+)
+

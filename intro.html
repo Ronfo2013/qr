@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Opium</title>
+  <style>
+    /* Pagina a schermo intero */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden; /* Evita scroll durante l’animazione */
+      background-color: #ffffff; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Stile del logo */
+    #logo {
+      width: 120px;
+      opacity: 0;
+      transform: scale(0);
+      transition: transform 1s ease, opacity 1s ease;
+    }
+
+    /* Classe che rivela il logo */
+    .show {
+      opacity: 1;
+      transform: scale(1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Logo -->
+  <img id="logo" src="003.png" alt="Logo" />
+
+  <script>
+    // Quando la pagina carica
+    window.addEventListener('load', () => {
+      // Lancia la transizione di reveal dopo un breve delay (0.3s)
+      setTimeout(() => {
+        document.getElementById('logo').classList.add('show');
+      }, 300);
+      
+      // Dopo 2 secondi dall’avvio (puoi regolare come preferisci)
+      setTimeout(() => {
+        // Reindirizza alla tua pagina index.html
+        window.location.href = 'index.html';
+      }, 2300);
+    });
+  </script>
+</body>
+</html>

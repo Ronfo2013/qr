@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Evento</title>
+    <!-- Foglio di stile principale -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Librerie e script aggiuntivi (se necessari) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="animato.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <!-- NAVBAR UNICA -->
+    <nav class="navbar">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="003.png" alt="Logo" />
+        </div>
+
+        <!-- Icona Hamburger (mostrata su mobile via CSS) -->
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Link di navigazione (desktop + mobile) -->
+        <ul class="nav-links">
+            <li><a href="https://www.opiumpordenone.com">Vai al sito</a></li>
+            <li><a href="http://www.opiumpordenone.com/foto/">Gallery</a></li>
+        </ul>
+    </nav>
+
+    <!-- SEZIONE DEL FORM -->
+    <div class="form-container">
+        <h2>Omaggio Donna<br>valido fino alle 24.00</h2>
+        <h3>Compila il modulo per registrarti</h3>
+
+        <form id="formEvent">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" placeholder="Inserisci il tuo nome" required />
+
+            <label for="cognome">Cognome</label>
+            <input type="text" id="cognome" name="cognome" placeholder="Inserisci il tuo cognome" required />
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Inserisci la tua email" required />
+
+            <label for="telefono">Numero di telefono</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="Inserisci il tuo numero di telefono" pattern="[0-9]{10}" required />
+
+            <label for="data-nascita">Data di nascita</label>
+            <input type="date" id="data-nascita" name="data-nascita" required />
+
+            <label for="citta">Città</label>
+            <input type="text" id="citta" name="citta" placeholder="Inserisci la tua città" required />
+
+            <label for="evento">Seleziona Evento:</label>
+            <select id="evento" name="evento" required>
+                <option value="" disabled selected>Seleziona un evento</option>
+                <!-- Opzioni evento dinamiche o statiche -->
+            </select>
+
+            <label for="consenso">
+                <input type="checkbox" id="consenso" name="consenso" required />
+                <p>Ho letto e accetto l'
+                    <a href="privacy-policy.html" target="_blank">informativa sulla privacy</a>.
+                </p>
+            </label>
+
+            <label for="pubblicita">
+                <input type="checkbox" id="pubblicita" name="pubblicita" required />
+                <p>Acconsento a ricevere comunicazioni pubblicitarie relative agli eventi e offerte promozionali, come previsto dalla normativa GDPR.</p>
+            </label>
+
+            <button type="submit" id="submitButton">Invia</button>
+        </form>
+
+        <!-- Elemento per messaggi (es. errori) -->
+       <div id="messageBox" style="display: none; font-size: 16px; margin-top: 10px;"></div>
+
+        <!-- Messaggio di ringraziamento -->
+        <div id="thankYouMessage" style="display: none;">
+            <h2>Grazie per esserti registrato!</h2>
+            <p>Ti aspettiamo all'evento!</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+<!-- Footer -->
+<footer class="site-footer">
+    <p>
+      OPIUM Club c/o PLANET FUN MOMIZ SRL<br>
+      Via Risera, 3 - Zoppola (PN)<br>
+      P.Iva 02721250302<br><br>
+      <a href="https://www.benhanced.it" target="_blank" rel="noopener noreferrer">
+        developed by Benhanced
+      </a>
+    </p>
+  </footer>
+
+    <!-- Script per toggle menu (facoltativo se già incluso in script.js) -->
+    <script>
+      function toggleMenu() {
+        document.querySelector('.nav-links').classList.toggle('open');
+      }
+    </script>
+    
+</body>
+
+</html>

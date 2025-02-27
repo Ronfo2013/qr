@@ -1,0 +1,309 @@
+/* ========================= */
+/* Variabili Globali         */
+/* ========================= */
+:root {
+    --background-color: #000;     /* Sfondo principale */
+    --form-background: #2a2a2a;   /* Sfondo del form */
+    --text-color: #fff;           /* Testo generico */
+    --placeholder-color: #b0b0b0; /* Testo placeholder / etichette */
+    --border-color: #444;         /* Bordo input */
+    --focus-color: transparent;   /* Colore al focus (qui trasparente) */
+    --button-bg: #ffffff;         /* Sfondo pulsanti */
+    --button-text: #000;          /* Testo pulsanti */
+    --disabled-bg: #666;          /* Sfondo pulsanti disabilitati */
+    --disabled-text: #bbb;        /* Testo pulsanti disabilitati */
+    --navbar-bg: #333;            /* Sfondo navbar */
+    --navbar-text: #fff;          /* Testo navbar */
+  
+    /* Aggiungiamo variabili dedicate al footer */
+    --footer-bg: #111;            /* Sfondo footer (scegli tu il colore) */
+    --footer-text: #ffffff;       /* Testo footer (scegli tu il colore) */
+  }
+  
+  
+  /* ========================= */
+  /* Stile Generale            */
+  /* ========================= */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Montserrat', Arial, sans-serif;
+    /* Layout in colonna per piazzare form e footer in verticale */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  /* ========================= */
+  /* Navbar Unica              */
+  /* ========================= */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--navbar-bg);
+    color: var(--navbar-text);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .navbar .logo img {
+    max-height: 50px;
+    display: block;
+    height: auto;
+    width: auto;
+  }
+  
+  /* Icona hamburger */
+  .hamburger-menu {
+    display: none; /* Mostrata solo da media query (mobile) */
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .hamburger-menu span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
+  }
+  
+  /* Menu link in linea su desktop */
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-links li a {
+    text-decoration: none;
+    color: var(--navbar-text);
+    font-size: 16px;
+  }
+  
+  /* ========================= */
+  /* Form Container            */
+  /* ========================= */
+  .form-container {
+    background-color: var(--form-background);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    width: 90%;
+    max-width: 400px;
+    margin-top: 80px; /* Spazio sotto la navbar fissa */
+    text-align: left;
+  }
+  
+  .form-container h2, 
+  .form-container h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  
+  /* Titolo principale (es. Omaggio Donna) */
+  .form-container h2 {
+    font-size: 1.8rem;
+  }
+  
+  /* Sottotitolo (Compila il modulo...) */
+  .form-container h3 {
+    font-size: 1.1rem;
+    color: var(--placeholder-color);
+  }
+  
+  /* ========================= */
+  /* Input e Select            */
+  /* ========================= */
+  input, select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  input::placeholder,
+  select::placeholder {
+    color: var(--placeholder-color);
+  }
+  
+  /* Focus trasparente */
+  input:focus,
+  select:focus {
+    outline: none;
+    border-color: var(--focus-color);
+    box-shadow: none;
+  }
+  
+  /* ========================= */
+  /* Checkbox                  */
+  /* ========================= */
+  label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    color: var(--text-color);
+  }
+  
+  label p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  /* Rimuoviamo lo stile di default e creiamo un custom checkbox con la spunta */
+  label input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--placeholder-color);
+    border-radius: 3px;
+    background-color: var(--form-background);
+    cursor: pointer;
+    margin-right: 10px;
+    position: relative;
+  }
+  
+  label input[type="checkbox"]:checked {
+    background-color: var(--button-bg);
+    border-color: var(--button-bg);
+  }
+  
+  /* La spunta ✓ quando selezionato */
+  label input[type="checkbox"]:checked::after {
+    content: "✓";
+    position: absolute;
+    top: -2px; 
+    left: 3px;
+    color: #000;
+    font-size: 30px;
+  }
+  
+  /* ========================= */
+  /* Pulsante Invia            */
+  /* ========================= */
+  button {
+    background: var(--button-bg);
+    color: var(--button-text);
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 193, 7, 0.5);
+  }
+  
+  button:disabled {
+    background: var(--disabled-bg);
+    color: var(--disabled-text);
+    cursor: not-allowed;
+  }
+  
+/* ========================= */
+/* Footer                    */
+/* ========================= */
+.site-footer {
+    width: 100%;
+    background-color: var(--footer-bg);   /* Usa lo sfondo dedicato */
+    color: var(--footer-text);            /* Usa il colore testo dedicato */
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px; 
+    font-size: 0.9rem;
+  }
+  
+  .site-footer p {
+    margin: 0;
+    line-height: 1.4;
+ 
+  }
+
+  /* ========================= */
+/* Stile Link               */
+/* ========================= */
+a {
+    color: var(--text-color);      /* Colore del testo del link */
+    text-decoration: none;         /* Rimuove la sottolineatura di default */
+    border-bottom: 1px solid var(--text-color); /* Aggiunge una "sottolineatura" personalizzata */
+}
+
+a:hover {
+    text-decoration: underline;    /* Aggiunge la sottolineatura al passaggio del mouse */
+    color: var(--text-color);      /* Mantiene il colore coerente */
+}
+  
+  /* ========================= */
+  /* Media Queries             */
+  /* ========================= */
+  @media (max-width: 1024px) {
+    /* Mostra icona hamburger, nasconde i link in un primo momento */
+    .hamburger-menu {
+      display: flex;
+    }
+    
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background-color: var(--navbar-bg);
+      flex-direction: column;
+      gap: 15px;
+      padding: 15px;
+      border-radius: 5px;
+    }
+  
+    .nav-links.open {
+      display: flex;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .form-container {
+      padding: 20px;
+    }
+    input, select, button {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .form-container {
+      padding: 15px;
+    }
+    input, select, button {
+      font-size: 0.8rem;
+    }
+    button {
+      padding: 10px;
+    }
+  }

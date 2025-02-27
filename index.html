@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form Evento</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="animato.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="003.png" alt="Logo" />
+    </div>
+    <div class="hamburger-menu" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="https://www.opiumpordenone.com">Vai al sito</a></li>
+      <li><a href="http://www.opiumpordenone.com/foto/">Gallery</a></li>
+    </ul>
+  </nav>
+
+  <!-- FORM CONTAINER -->
+  <div id="containerForm" class="form-container">
+    <h2>Omaggio Donna<br>Valido fino alle 24.00</h2>
+    <h3>Compila il modulo per registrarti</h3>
+
+    <form id="formEvent" action="save_form.php" method="POST">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" placeholder="Inserisci il tuo nome" required />
+
+      <label for="cognome">Cognome</label>
+      <input type="text" id="cognome" name="cognome" placeholder="Inserisci il tuo cognome" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Inserisci la tua email" required />
+
+      <label for="telefono">Numero di telefono</label>
+      <input type="tel" id="telefono" name="telefono" placeholder="Inserisci il tuo numero di telefono "  required />
+
+      <label for="data-nascita">Data di nascita</label>
+      <input type="date" id="data-nascita" name="data-nascita" required />
+
+      <label for="citta">Città</label>
+      <input type="text" id="citta" name="citta" placeholder="Inserisci la tua città" required />
+
+      <label for="evento">Seleziona Evento:</label>
+      <select id="evento" name="evento" required>
+        <option value="" disabled selected>Seleziona un evento</option>
+        <!-- Opzioni aggiunte dinamicamente -->
+      </select>
+
+      <label for="consenso" class="checkbox-label">
+        <input type="checkbox" id="consenso" name="consenso" required />
+        Ho letto e accetto l' <a href="privacy-policy.html" target="_blank">informativa sulla privacy</a>.
+      </label>
+
+      <label for="pubblicita" class="checkbox-label">
+        <input type="checkbox" id="pubblicita" name="pubblicita" />
+        Acconsento a ricevere comunicazioni pubblicitarie relative agli eventi e offerte promozionali.
+      </label>
+
+      <button type="submit" id="submitButton">Invia</button>
+    </form>
+  </div>
+
+  <!-- MESSAGE BOX -->
+  <div id="messageBox" style="display: none; font-size: 16px; margin-top: 10px;"></div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>
+      OPIUM Club c/o PLANET FUN MOMIZ SRL<br>
+      Via Risera, 3 - Zoppola (PN)<br>
+      P.Iva 02721250302<br><br>
+      <a href="https://www.benhanced.it" target="_blank" rel="noopener noreferrer">developed by Benhanced</a>
+    </p>
+  </footer>
+
+  <!-- MENU SCRIPT -->
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

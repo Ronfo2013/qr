@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Scanner con qr-scanner</title>
+  <!-- Includi la libreria qr-scanner dal CDN -->
+  <script src="https://unpkg.com/qr-scanner/qr-scanner.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+    video {
+      width: 300px;
+      margin: 20px auto;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+    }
+    #result {
+      font-size: 18px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>QR Scanner</h1>
+  <!-- Elemento video per mostrare l'anteprima della fotocamera -->
+  <video id="qr-video"></video>
+  <p id="result">Attesa scansione...</p>
+
+  <script>
+    // Elemento video e paragrafo per il risultato
+    const videoElem = document.getElementById('qr-video');
+    const resultElem = document.getElementById('result');
+
+    // Crea l'istanza di QrScanner e forza l'uso della fotocamera posteriore
+    const qrScanner = new QrScanner(
+      videoElem,
+      result => {
+        resultElem.innerText = "QR Code rilevato: " + result;
+        console.log("QR Code decodificato:", result);
+        // Qui puoi aggiungere la logica per gestire il risultato (es. invio al server)
+      },
+      {
+        // Questa opzione tenta di usare la fotocamera posteriore
+        preferredCamera: "environment",
+        // Opzionale: evidenzia la regione di scansione
+        highlightScanRegion: true,
+        highlightCodeOutline: true,
+      }
+    );
+
+    // Avvia la scansione
+    qrScanner.start().then(() => {
+      resultElem.innerText = "Fotocamera attivata. Scansiona un QR Code.";
+      console.log("Scanner avviato correttamente.");
+    }).catch(err => {
+      resultElem.innerText = "Errore nell'avvio della fotocamera: " + err;
+      console.error("Errore:", err);
+    });
+  </script>
+</body>
+</html>
